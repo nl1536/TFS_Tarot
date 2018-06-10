@@ -16,17 +16,13 @@ public class cardMovement : MonoBehaviour {
         revealedFortune = false;
         revealedElements = false;
 
-        GetComponent<SpringJoint2D>().connectedAnchor = new Vector2(GetComponent<Transform>().position.x, -9f);
+        GetComponent<SpringJoint2D>().connectedAnchor = new Vector2(GetComponent<Transform>().position.x, 0f);
         GetComponent<Rigidbody2D>().drag = 1f;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            GetComponent<SpringJoint2D>().connectedAnchor = new Vector2(GetComponent<Transform>().position.x, 0f);
-        }
 
         if (chosen) {
             GetComponent<Transform>().localScale = new Vector2(GetComponent<Transform>().localScale.x + (0.9f - GetComponent<Transform>().localScale.x) / 10f,
@@ -62,6 +58,6 @@ public class cardMovement : MonoBehaviour {
     IEnumerator FortuneRevealCoroutine() {
         yield return new WaitForSeconds(3.27f);
 
-        GetComponent<SpringJoint2D>().connectedAnchor = new Vector2(-6f, GetComponent<Transform>().position.y);
+        GetComponent<SpringJoint2D>().connectedAnchor = new Vector2(-5.5f, GetComponent<Transform>().position.y);
     }
 }
